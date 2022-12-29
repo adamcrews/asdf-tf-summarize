@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for tf-summarize.
-GH_REPO="https://github.com/adamcrews/asdf-tf-summarize"
+GH_REPO="https://github.com/dineshba/tf-summarize"
 TOOL_NAME="tf-summarize"
 TOOL_TEST="tf-summarize --help"
 
@@ -37,12 +37,15 @@ list_all_versions() {
 }
 
 download_release() {
-  local version filename url
+  local version filename url platform arch
   version="$1"
   filename="$2"
 
+  platform=$(getPlatform)
+  arch=$(getArch)
+
   # TODO: Adapt the release URL convention for tf-summarize
-  url="$GH_REPO/archive/v${version}.tar.gz"
+  url="$GH_REPO/releases/download/v${version}/${TOOL_NAME}_${platform}_${arch}.zip"
 
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
@@ -71,4 +74,25 @@ install_version() {
     rm -rf "$install_path"
     fail "An error occurred while installing $TOOL_NAME $version."
   )
+}
+
+getArch() {
+  local ARCH
+  ARCH=$(uname -m)
+
+  case $ARCH in
+    armv*)   ARCH="arm" ;;
+    aarch64) ARCH="arm64" ;;
+    x86)     ARCH="386" ;;
+    x86_64)  ARCH="amd64" ;;
+    i686)    ARCH="386" ;;
+    i386)    ARCH="386" ;;
+  esac
+  echo "${ARCH}"
+}
+
+getPlatform() {
+  local platform
+  [ "Linux" = "$(uname)" ] && platform="linux" || platform="darwin"
+  echo "${platform}"
 }
