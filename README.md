@@ -13,6 +13,7 @@
 - [Contents](#contents)
 - [Dependencies](#dependencies)
 - [Install](#install)
+- [Source project](#source-project)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -48,6 +49,10 @@ tf-summarize --help
 
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
 install & manage versions.
+
+# Source project
+
+This project simply installs the [tf-summarize](https://github.com/dineshba/tf-summarize) utility via asdf.
 
 # Contributing
 
