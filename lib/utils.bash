@@ -5,7 +5,7 @@ set -euo pipefail
 # TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for tf-summarize.
 GH_REPO="https://github.com/dineshba/tf-summarize"
 TOOL_NAME="tf-summarize"
-TOOL_TEST="tf-summarize --help"
+TOOL_TEST="tf-summarize -v"
 
 fail() {
   echo -e "asdf-$TOOL_NAME: $*"
@@ -81,12 +81,12 @@ getArch() {
   ARCH=$(uname -m)
 
   case $ARCH in
-    armv*)   ARCH="arm" ;;
-    aarch64) ARCH="arm64" ;;
-    x86)     ARCH="386" ;;
-    x86_64)  ARCH="amd64" ;;
-    i686)    ARCH="386" ;;
-    i386)    ARCH="386" ;;
+  armv*) ARCH="arm" ;;
+  aarch64) ARCH="arm64" ;;
+  x86) ARCH="386" ;;
+  x86_64) ARCH="amd64" ;;
+  i686) ARCH="386" ;;
+  i386) ARCH="386" ;;
   esac
   echo "${ARCH}"
 }
