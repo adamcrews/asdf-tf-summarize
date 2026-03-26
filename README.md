@@ -3,7 +3,7 @@
 # asdf-tf-summarize [![Build](https://github.com/adamcrews/asdf-tf-summarize/actions/workflows/build.yml/badge.svg)](https://github.com/adamcrews/asdf-tf-summarize/actions/workflows/build.yml) [![Lint](https://github.com/adamcrews/asdf-tf-summarize/actions/workflows/lint.yml/badge.svg)](https://github.com/adamcrews/asdf-tf-summarize/actions/workflows/lint.yml)
 
 
-[tf-summarize](https://github.com/adamcrews/asdf-tf-summarize) plugin for the [asdf version manager](https://asdf-vm.com).
+[tf-summarize](https://github.com/dineshba/tf-summarize) plugin for the [asdf version manager](https://asdf-vm.com).
 
 </div>
 
